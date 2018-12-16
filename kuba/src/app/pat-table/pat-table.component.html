@@ -1,0 +1,37 @@
+<div>
+    <table mat-table
+       [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+    <ng-container matColumnDef="{{column}}" *ngFor="let column of entityColumns">
+        <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+        <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let element" [attr.colspan]="entityColumns.length">
+        <div class="example-element-detail"
+            [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+            <div class="example-element-diagram">
+            <div class="example-element-name"> {{element.firstname}} </div>
+            <div class="example-element-name"> {{element.Lastname}} </div>
+            <div class="example-element-name"> {{element.Age}} </div>
+            <div class="example-element-address"> {{element.Address}} </div>
+            
+            </div>
+            <div class="example-element-description">
+            {{element.description}}
+            </div>
+        </div>
+        </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="entityColumns"></tr>
+    <tr mat-row *matRowDef="let element; columns: entityColumns;"
+        class="example-element-row"
+        [class.example-expanded-row]="expandedElement === element"
+        (click)="expandedElement = element">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+    </table>
+</div>
