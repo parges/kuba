@@ -12610,11 +12610,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Dev\\kuba-api\\kuba-api\\kuba-api.csproj",
+      "projectUniqueName": "D:\\Dev\\kuba\\kuba-api\\kuba-api\\kuba-api.csproj",
       "projectName": "kuba-api",
-      "projectPath": "D:\\Dev\\kuba-api\\kuba-api\\kuba-api.csproj",
+      "projectPath": "D:\\Dev\\kuba\\kuba-api\\kuba-api\\kuba-api.csproj",
       "packagesPath": "C:\\Users\\Stefan\\.nuget\\packages\\",
-      "outputPath": "D:\\Dev\\kuba-api\\kuba-api\\obj\\",
+      "outputPath": "D:\\Dev\\kuba\\kuba-api\\kuba-api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

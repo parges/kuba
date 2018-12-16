@@ -1,5 +1,8 @@
+import { Patient } from './../../patient';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { PatientServiceService } from 'src/app/services/patient-service.service';
 
 @Component({
   selector: 'app-mat-add-form',
@@ -20,9 +23,17 @@ export class MatAddFormComponent {
     description: [null]
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private patientService: PatientServiceService) {}
 
   onSubmit() {
+    this.addPatient(this.patientForm.value);
     alert('Thanks!');
+  }
+
+  addPatient (patient: Patient): void {
+    this.patientService.addPatient(patient)
+      .subscribe(function() {
+        alert('received');
+      });
   }
 }

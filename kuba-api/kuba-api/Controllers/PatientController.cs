@@ -18,13 +18,6 @@ namespace kuba_api.Controllers
         public PatientController(PatientContext context)
         {
             _context = context;
-            if (_context.Patients.Count() == 0)
-            {
-                // Create a new TodoItem if collection is empty,
-                // which means you can't delete all TodoItems.
-                _context.Patients.Add(new Patient { Id = 0, Firstname = "Kleiner", Lastname = "Hase", Age = 5, Address = "Irgendwo 12", Description = "Ein ganz lieber Patient"});
-                _context.SaveChanges();
-            }
         }
 
         // GET: api/Patient
