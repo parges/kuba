@@ -1,3 +1,4 @@
+import { AddComponent } from './../add.component';
 import { Patient } from './../../patient';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -26,7 +27,8 @@ export class MatAddFormComponent {
   constructor(private fb: FormBuilder, private patientService: PatientServiceService) {}
 
   onSubmit() {
-    this.addPatient(this.patientForm.value);
+    let patient = this.convertFormToObject(this.patientForm.value);
+    this.addPatient(patient);
     alert('Thanks!');
   }
 
@@ -35,5 +37,16 @@ export class MatAddFormComponent {
       .subscribe(function() {
         alert('received');
       });
+  }
+
+  convertFormToObject (_obj: any): Patient {
+    let patient = new Patient();
+    patient.Firstname = _obj.firstName;
+    patient.Lastname = _obj.lastName;
+    patient.Age = _obj.age = 1;
+    patient.Address = _obj.address;
+    patient.Description = _obj.description = 'Bla';
+
+    return patient;
   }
 }

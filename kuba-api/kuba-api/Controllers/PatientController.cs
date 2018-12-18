@@ -47,7 +47,8 @@ namespace kuba_api.Controllers
             _context.Patients.Add(item);
             _context.SaveChanges();
 
-            return CreatedAtRoute("Get", new {id = item.Id}, item);
+            return Ok();
+            //return CreatedAtRoute("Get", new {id = item.Id}, item);
         }
 
         // PUT: api/Patient/5
